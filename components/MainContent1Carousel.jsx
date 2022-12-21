@@ -4,7 +4,7 @@ import CarouselImage3 from "./../public/images/main-carousel-3.jpg";
 import CarouselImage4 from "./../public/images/main-carousel-4.jpg";
 import CustomCarousel from "./CustomCarousel";
 
-const MainContentTopCarousel = () => {
+const MainContent1TopCarousel = () => {
   const carouselItems = [
     {
       imageSrc: CarouselImage1,
@@ -32,4 +32,4 @@ const MainContentTopCarousel = () => {
   );
 };
 
-export default MainContentTopCarousel;
+export default MainContent1TopCarousel;

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import phonePeLogo from "./../public/images/logo.svg";
 
-const Header = () => {
+const Header = ({ scrolled }) => {
   return (
-    <div className={`flex items-center px-32 py-[10px] w-full`}>
+    <div
+      className={`flex items-center px-32 py-[10px] w-full ${
+        scrolled && "shadow-sm shadow-gray-500"
+      }`}
+    >
       <Image
         src={phonePeLogo}
         width={155}
@@ -28,7 +32,7 @@ const Header = () => {
           return (
             <span
               key={index}
-              className={`font-sans cursor-pointer hover:text-gigas`}
+              className={`font-sans font-normal text-black text-base cursor-pointer hover:text-gigas`}
             >
               {headerLinkName}
             </span>

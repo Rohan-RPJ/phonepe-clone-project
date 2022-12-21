@@ -3,7 +3,7 @@ import CarouselImage3 from "./../public/images/main-carousel-3.jpg";
 import CarouselImage4 from "./../public/images/main-carousel-4.jpg";
 import TwoCards from "./TwoCards";
 
-const MainContentTwoCards = () => {
+const MainContent2TwoCards = () => {
   return (
     <div
       className={`flex items-center justify-center w-full h-[300px] space-x-4 my-[76px]`}
@@ -36,4 +36,4 @@ const MainContentTwoCards = () => {
   );
 };
 
-export default MainContentTwoCards;
+export default MainContent2TwoCards;

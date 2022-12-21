@@ -21,7 +21,7 @@ const TwoCards = ({ title, desc, imgSrc, imgStyle }) => {
       <div
         className={` h-full w-[50%] flex items-center justify-center rounded-l-full ${imgStyle}`}
       >
-        <Image src={imgSrc} width={200} />
+        <Image src={imgSrc} width={200} alt="" />
       </div>
     </div>
   );
