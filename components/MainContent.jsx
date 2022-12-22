@@ -28,7 +28,7 @@ const MainContent = () => {
 
       <MainContent7ImageTextGrid />
 
-      <div className={`my-1 py-16 invisible`} />
+      <div className={`my-1 py-7 invisible`} />
 
       <MainContent8CardsPress />
 
