@@ -1,7 +1,7 @@
 import React from "react";
 import CarouselImage3 from "./../public/images/main-carousel-3.jpg";
 import CarouselImage4 from "./../public/images/main-carousel-4.jpg";
-import TwoCards from "./TwoCards";
+import CardTextWithImage from "./CardTextWithImage";
 
 const MainContent2TwoCards = () => {
   return (
@@ -23,7 +23,7 @@ const MainContent2TwoCards = () => {
         },
       ].map(({ title, desc, imgStyle, imgSrc }, index) => {
         return (
-          <TwoCards
+          <CardTextWithImage
             key={index}
             title={title}
             desc={desc}

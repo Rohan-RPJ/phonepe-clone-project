@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
-const TwoCards = ({ title, desc, imgSrc, imgStyle }) => {
+const CardTextWithImage = ({ title, desc, imgSrc, imgStyle }) => {
   return (
     <div
       className={`flex items-center justify-between w-[565px] h-full rounded-xl overflow-hidden border border-gray-400 cursor-pointer transition delay-75 hover:border-none hover:shadow-2xl`}
@@ -27,4 +27,4 @@ const TwoCards = ({ title, desc, imgSrc, imgStyle }) => {
   );
 };
 
-export default TwoCards;
+export default CardTextWithImage;

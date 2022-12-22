@@ -1,32 +1,15 @@
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import GradientButton from "./GradientButton";
 import MainContent1TopCarousel from "./MainContent1Carousel";
 import MainContent2TwoCards from "./MainContent2TwoCards";
 import MainContent3TextAndVideo from "./MainContent3TextAndVideo";
 import MainContent4AnimatedCards from "./MainContent4AnimatedCards";
 import MainContent5WideCard from "./MainContent5WideCard";
-import ThirdPartyPartnerLogos from "./../public/images/third-party-partner-logos.png";
+import MainContent6ImageAnimation from "./MainContent6ImageAnimation";
+import MainContent7ImageTextGrid from "./MainContent7ImageTextGrid";
+import MainContent8CardsPress from "./MainContent8CardsPress";
+import BGImage from "./../public/images/stats-desktop.png";
 
 const MainContent = () => {
-  const myRef = useRef();
-  const [myRefScrolled, setMyRefScrolled] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(function (entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          console.log("????");
-          setMyRefScrolled(true);
-        } else {
-          // setMyRefScrolled(false)
-        }
-      });
-    });
-
-    observer.observe(myRef.current);
-  }, []);
-
   return (
     <div className={`w-full h-full`}>
       <MainContent1TopCarousel />
@@ -36,32 +19,78 @@ const MainContent = () => {
 
       <div className={`my-1 py-16 invisible`} />
 
-      <div className={`w-full h-full relative`}>
+      <div className={`w-full h-full`}>
         <MainContent5WideCard zIndex={1} />
+        <MainContent6ImageAnimation />
+      </div>
+
+      <div className={`my-1 py-16 invisible`} />
+
+      <MainContent7ImageTextGrid />
+
+      <div className={`my-1 py-16 invisible`} />
+
+      <MainContent8CardsPress />
+
+      <div className={`relative w-full h-[442px] bg-[#7962bd] mb-80 pt-10`}>
+        <div className={`absolute bottom-0 bg-[#7962bd] w-full h-full`}>
+          <Image
+            src={BGImage}
+            unoptimized={true}
+            className={`px-32 absolute bottom-0 bg-[#7962bd]`}
+            alt=""
+          />
+        </div>
 
         <div
-          className={`absolute z-0 -translate-y-[140px] w-full h-[800px] bg-gradient-to-b from-[#ddd8fa] to-[#fff] pt-[260px]`}
+          className={`w-full h-full flex flex-col items-center gap-4 pl-[254px] pr-[130px] pt-[28px]`}
         >
+          <div className={`w-full grid grid-cols-3 text-white`}>
+            {[
+              {
+                p1: "Trusted by",
+                p2: "43 Crore",
+                p3: "Registered Users",
+              },
+              {
+                p1: "Accepted all over",
+                p2: "India",
+                p3: "",
+              },
+              {
+                p1: "Accepted at",
+                p2: "~3.5 Crore",
+                p3: "Stores",
+              },
+            ].map(({ p1, p2, p3 }, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`w-full flex flex-col items-start whitespace-nowrap`}
+                >
+                  <p className={`text-xl opacity-80 font-light tracking-wider`}>
+                    {p1}
+                  </p>
+                  <p className={`opacity-90 text-5xl font-semibold`}>{p2}</p>
+                  <p className={`text-xl opacity-80 font-light tracking-wider`}>
+                    {p3}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
           <div
-            className={`w-full h-full flex flex-col items-center justify-center`}
+            className={`w-full flex items-center justify-between pr-48 opacity-90 text-white pt-6 pl-2`}
           >
-            <span
-              className={`text-[2.625rem] text-[#361968] font-bold flex flex-col items-center justify-center`}
+            <p className={`opacity-80 text-[1.625rem] font-medium`}>
+              Get the latest data trends and insights on PhonePe Pulse!
+            </p>
+            <button
+              className={`border-2 border-[#4cdeff] px-8 py-1.5 rounded-full text-lg`}
             >
-              <h2>At ~3.5 Crore</h2>
-              <h2>stores, apps, websites & more</h2>
-            </span>
-
-            <GradientButton text={"Partner with us"} />
-
-            <div
-              className={`w-full h-full px-32 py-4 -translate-x-[1500px] ${
-                myRefScrolled && "translate-x-0"
-              } transition-transform duration-[1000ms]`}
-              ref={myRef}
-            >
-              <Image src={ThirdPartyPartnerLogos} unoptimized={true} />
-            </div>
+              Explore Now
+            </button>
           </div>
         </div>
       </div>

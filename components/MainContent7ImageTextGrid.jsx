@@ -1,0 +1,98 @@
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import SalesImage from "./../public/images/sales-anim.png";
+import BasketDesktopImage from "./../public/images/basket-desktop.png";
+
+const MainContent7ImageTextGrid = () => {
+
+    const myRef = useRef();
+  const [myRefScrolled, setMyRefScrolled] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(function (entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setMyRefScrolled(true);
+        } else {
+          // setMyRefScrolled(false)
+        }
+      });
+    });
+
+    observer.observe(myRef.current);
+  }, []);
+
+  return (
+    <div className={`w-full h-full`}>
+        <div className={`w-full h-full grid grid-cols-2 py-4 px-32`}>
+          <div className={`w-full h-full col-span-1 relative`}>
+            <Image src={BasketDesktopImage} unoptimized={true} ref={myRef} alt="" />
+            <Image src={SalesImage} unoptimized={true} className={`absolute top-16 right-16 ${myRefScrolled ? "visible -translate-x-0" : "invisible -translate-x-[1000px]"} transition-transform delay-400 duration-[1000ms]`} />
+          </div>
+          <div className={`w-full h-full col-span-1 pl-32 py-6`}>
+            <div className={`w-full flex flex-col justify-center pl-3`}>
+              <p className={`text-[2.5rem] text-[#361968] font-medium`}>
+                For Business
+              </p>
+              <p className={`text-base font-light text-[#333] py-7`}>
+                Find the digital payment solution that fits your business needs
+              </p>
+              <div
+                className={`w-full flex flex-col items-start justify-center gap-2 py-4`}
+              >
+                <p
+                  className={`text-[22px] font-normal font-[#323232] pt-3 pb-2`}
+                >
+                  I want to:
+                </p>
+                {[
+                  {
+                    p1: "Be on PhonePe Switch",
+                    p2: "Get new users for your app",
+                  },
+                  {
+                    p1: "Accept payments at stores",
+                    p2: "Help your business go cashless",
+                  },
+                  {
+                    p1: "Accept online payments",
+                    p2: "Set up easy payment solutions",
+                  },
+                  {
+                    p1: "Advertise on PhonePe",
+                    p2: "Advertise & let customers know about you",
+                  },
+                ].map(({ p1, p2 }, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`w-full flex flex-col items-start gap-2 cursor-pointer group`}
+                    >
+                      <div
+                        className={`w-full flex items-center justify-between text-[#6739b7]`}
+                      >
+                        <p className={`text-lg font-medium`}>{p1}</p>
+                        <ChevronRightIcon
+                          width={28}
+                          className={`group-hover:translate-x-3 transition-transform`}
+                        />
+                      </div>
+                      <p className={`text-base text-[#333] font-light`}>{p2}</p>
+                      <hr
+                        className={`${
+                          index === 3 && "hidden"
+                        } text-black w-full my-3 border-1 border-gray-400`}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  )
+}
+
+export default MainContent7ImageTextGrid
