@@ -42,7 +42,8 @@ const MainContent4AnimatedCards = () => {
     CardImage6,
     CardImage7,
   ];
-/*
+  /*
+// loop for useState does not work in deployment of vercel
   let tempZIndex = middleCardIndex - 1;
   for (let i = 0; i < totalCards; i++) {
     cardsTransformArr[i] = translateXOffset * (i - middleCardIndex + 1);
@@ -55,109 +56,62 @@ const MainContent4AnimatedCards = () => {
     });
   }
 */
-  
+  cardsTransformArr[0] = translateXOffset * -3;
+  dynamicCardStyleStates[0] = useState({
+    index: 0,
+    width: maxCardSize - cardSizeOffset * Math.abs(3),
+    height: maxCardSize - cardSizeOffset * Math.abs(3),
+    zIndex: 0,
+  });
 
+  cardsTransformArr[1] = translateXOffset * -2;
+  dynamicCardStyleStates[1] = useState({
+    index: 1,
+    width: maxCardSize - cardSizeOffset * Math.abs(2),
+    height: maxCardSize - cardSizeOffset * Math.abs(2),
+    zIndex: 1,
+  });
 
+  cardsTransformArr[2] = translateXOffset * -1;
+  dynamicCardStyleStates[2] = useState({
+    index: 2,
+    width: maxCardSize - cardSizeOffset * Math.abs(1),
+    height: maxCardSize - cardSizeOffset * Math.abs(1),
+    zIndex: 2,
+  });
 
+  cardsTransformArr[3] = translateXOffset * 0;
+  dynamicCardStyleStates[3] = useState({
+    index: 3,
+    width: maxCardSize - cardSizeOffset * Math.abs(0),
+    height: maxCardSize - cardSizeOffset * Math.abs(0),
+    zIndex: 3,
+  });
 
-    cardsTransformArr[0] = translateXOffset * (3);
+  cardsTransformArr[4] = translateXOffset * 1;
+  dynamicCardStyleStates[4] = useState({
+    index: 4,
+    width: maxCardSize - cardSizeOffset * Math.abs(1),
+    height: maxCardSize - cardSizeOffset * Math.abs(1),
+    zIndex: 2,
+  });
 
-    dynamicCardStyleStates[0] = useState({
+  cardsTransformArr[5] = translateXOffset * 2;
+  dynamicCardStyleStates[5] = useState({
+    index: 5,
+    width: maxCardSize - cardSizeOffset * Math.abs(2),
+    height: maxCardSize - cardSizeOffset * Math.abs(2),
+    zIndex: 1,
+  });
 
-      index: 0,
+  cardsTransformArr[6] = translateXOffset * 3;
+  dynamicCardStyleStates[6] = useState({
+    index: 6,
+    width: maxCardSize - cardSizeOffset * Math.abs(3),
+    height: maxCardSize - cardSizeOffset * Math.abs(3),
+    zIndex: 0,
+  });
 
-      width: maxCardSize - cardSizeOffset * Math.abs(3),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(3),
-
-      zIndex: 0
-
-    });
-cardsTransformArr[1] = translateXOffset * (2);
-
-    dynamicCardStyleStates[1] = useState({
-
-      index: 1,
-
-      width: maxCardSize - cardSizeOffset * Math.abs(2),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(2),
-
-      zIndex: 1
-
-    });
-    
-    cardsTransformArr[2] = translateXOffset * (1);
-
-    dynamicCardStyleStates[2] = useState({
-
-      index: 2,
-
-      width: maxCardSize - cardSizeOffset * Math.abs(1),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(1),
-
-      zIndex: 2
-
-    });
-    
-    cardsTransformArr[3] = translateXOffset * (0);
-
-    dynamicCardStyleStates[3] = useState({
-
-      index: 3,
-
-      width: maxCardSize - cardSizeOffset * Math.abs(0),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(0),
-
-      zIndex: 3
-
-    });
-    
-    cardsTransformArr[4] = translateXOffset * (1);
-
-    dynamicCardStyleStates[4] = useState({
-
-      index: 4,
-
-      width: maxCardSize - cardSizeOffset * Math.abs(1),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(1),
-
-      zIndex: 2
-
-    });
-    
-    cardsTransformArr[5] = translateXOffset * (2);
-
-    dynamicCardStyleStates[5] = useState({
-
-      index: 5,
-
-      width: maxCardSize - cardSizeOffset * Math.abs(2),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(2),
-
-      zIndex: 1
-
-    });
-    
-    cardsTransformArr[6] = translateXOffset * (3);
-
-    dynamicCardStyleStates[6] = useState({
-
-      index: 6,
-
-      width: maxCardSize - cardSizeOffset * Math.abs(3),
-
-      height: maxCardSize - cardSizeOffset * Math.abs(3),
-
-      zIndex: 0
-
-    });
-  
-  
   const [hoveredCardIndexState, setHoveredCardIndexState] =
     useState(middleCardIndex);
 
