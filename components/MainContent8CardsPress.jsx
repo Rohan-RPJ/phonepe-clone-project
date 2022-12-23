@@ -45,7 +45,7 @@ const MainContent8CardsPress = () => {
           return (
             <div
               key={index}
-              className={`w-1/3 h-[400px] flex flex-col items-start justify-between text-gray-600 pl-6 pt-9 pr-5 bg-white border border-gray-300 rounded-xl hover:shadow-2xl transition-shadow group`}
+              className={`w-1/3 h-[400px] flex flex-col items-start justify-between text-gray-600 pl-6 pt-9 pr-5 bg-white border border-gray-300 rounded-xl hover:shadow-2xl transition-shadow cursor-pointer group`}
             >
               <p className={`text-base font-light`}>{card.date}</p>
               <p className={`text-[1.375rem] font-medium pb-8 pr-[19px]`}>

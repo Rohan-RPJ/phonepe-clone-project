@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
-const CardTextWithImage = ({ title, desc, imgSrc, imgStyle }) => {
+const CardTextWithIcon = ({ title, desc, Icon, IconStyle, IconBg }) => {
   return (
     <div
       className={`flex items-center justify-between w-[565px] h-full rounded-xl overflow-hidden border border-gray-400 cursor-pointer transition delay-75 hover:border-none hover:shadow-2xl`}
@@ -19,12 +19,13 @@ const CardTextWithImage = ({ title, desc, imgSrc, imgStyle }) => {
       </div>
 
       <div
-        className={` h-full w-[50%] flex items-center justify-center rounded-l-full ${imgStyle}`}
+        className={` h-full w-[50%] flex items-center justify-end rounded-l-full ${IconBg}`}
       >
-        <Image src={imgSrc} width={200} alt="" />
+        <Icon width={200} className={`${IconStyle}`} />
+        {/* <Image src={imgSrc} width={200} alt="" /> */}
       </div>
     </div>
   );
 };
 
-export default CardTextWithImage;
+export default CardTextWithIcon;

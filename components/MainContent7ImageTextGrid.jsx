@@ -38,7 +38,7 @@ const MainContent7ImageTextGrid = () => {
             className={`absolute top-16 right-16 ${
               myRefScrolled
                 ? "visible -translate-x-0"
-                : "invisible -translate-x-[1000px]"
+                : "invisible -translate-x-[1000px] absolute"
             } transition-transform delay-400 duration-[1000ms]`}
             alt=""
           />

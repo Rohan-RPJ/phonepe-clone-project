@@ -43,7 +43,7 @@ const MainContent6ImageAnimation = () => {
 
           <div
             className={`w-full h-full px-32 py-4 -translate-x-[1500px] ${
-              myRefScrolled && "translate-x-0"
+              myRefScrolled ? "translate-x-0" : "absolute"
             } transition-transform duration-[1000ms]`}
             ref={myRef}
           >
