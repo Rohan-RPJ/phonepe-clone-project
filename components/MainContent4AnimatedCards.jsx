@@ -11,7 +11,7 @@ import CardImage6 from "./../public/images/superman.jpg";
 import CardImage7 from "./../public/images/batman.jpg";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
-const MainContent4AnimatedCards = () => {
+const MainContent4AnimatedCards = ({ isMobileNav }) => {
   /*
 
         100 110 120 130 120 110 100
@@ -27,9 +27,9 @@ const MainContent4AnimatedCards = () => {
 
   const totalCards = 7; // should be odd
   const middleCardIndex = Math.ceil(totalCards / 2);
-  const maxCardSize = 440;
-  const cardSizeOffset = 35;
-  const translateXOffset = 150;
+  const maxCardSize = isMobileNav ? 240 : 440;
+  const cardSizeOffset = isMobileNav ? 15 : 35;
+  const translateXOffset = isMobileNav ? 30 : 150;
 
   const cardsTransformArr = [];
   const dynamicCardStyleStates = [];
@@ -50,77 +50,75 @@ const MainContent4AnimatedCards = () => {
 
     dynamicCardStyleStates[i] = useState({
       index: i,
-      width: maxCardSize - cardSizeOffset * Math.abs(i - middleCardIndex + 1),
-      height: maxCardSize - cardSizeOffset * Math.abs(i - middleCardIndex + 1),
+      width: getCardSize(i - middleCardIndex + 1),
+      height: getCardSize(i - middleCardIndex + 1),
       zIndex: i < middleCardIndex ? i : tempZIndex-- - 1,
     });
   }
 */
+
+  const getCardSize = (index) => {
+    return maxCardSize - Math.abs(index) * cardSizeOffset;
+  };
+
   cardsTransformArr[0] = translateXOffset * -3;
   dynamicCardStyleStates[0] = useState({
     index: 0,
-    width: maxCardSize - cardSizeOffset * Math.abs(3),
-    height: maxCardSize - cardSizeOffset * Math.abs(3),
+    width: getCardSize(3),
+    height: getCardSize(3),
     zIndex: 0,
   });
 
   cardsTransformArr[1] = translateXOffset * -2;
   dynamicCardStyleStates[1] = useState({
     index: 1,
-    width: maxCardSize - cardSizeOffset * Math.abs(2),
-    height: maxCardSize - cardSizeOffset * Math.abs(2),
+    width: getCardSize(2),
+    height: getCardSize(2),
     zIndex: 1,
   });
 
   cardsTransformArr[2] = translateXOffset * -1;
   dynamicCardStyleStates[2] = useState({
     index: 2,
-    width: maxCardSize - cardSizeOffset * Math.abs(1),
-    height: maxCardSize - cardSizeOffset * Math.abs(1),
+    width: getCardSize(1),
+    height: getCardSize(1),
     zIndex: 2,
   });
 
   cardsTransformArr[3] = translateXOffset * 0;
   dynamicCardStyleStates[3] = useState({
     index: 3,
-    width: maxCardSize - cardSizeOffset * Math.abs(0),
-    height: maxCardSize - cardSizeOffset * Math.abs(0),
+    width: getCardSize(0),
+    height: getCardSize(0),
     zIndex: 3,
   });
 
   cardsTransformArr[4] = translateXOffset * 1;
   dynamicCardStyleStates[4] = useState({
     index: 4,
-    width: maxCardSize - cardSizeOffset * Math.abs(1),
-    height: maxCardSize - cardSizeOffset * Math.abs(1),
+    width: getCardSize(1),
+    height: getCardSize(1),
     zIndex: 2,
   });
 
   cardsTransformArr[5] = translateXOffset * 2;
   dynamicCardStyleStates[5] = useState({
     index: 5,
-    width: maxCardSize - cardSizeOffset * Math.abs(2),
-    height: maxCardSize - cardSizeOffset * Math.abs(2),
+    width: getCardSize(2),
+    height: getCardSize(2),
     zIndex: 1,
   });
 
   cardsTransformArr[6] = translateXOffset * 3;
   dynamicCardStyleStates[6] = useState({
     index: 6,
-    width: maxCardSize - cardSizeOffset * Math.abs(3),
-    height: maxCardSize - cardSizeOffset * Math.abs(3),
+    width: getCardSize(3),
+    height: getCardSize(3),
     zIndex: 0,
   });
 
   const [hoveredCardIndexState, setHoveredCardIndexState] =
     useState(middleCardIndex);
-
-  const getCardSize = (hoveredCardIndex, currentCardIndex) => {
-    return (
-      maxCardSize -
-      Math.abs(hoveredCardIndex - currentCardIndex) * cardSizeOffset
-    );
-  };
 
   const handleCardSizes = (hoveredCardIndex) => {
     setHoveredCardIndexState(hoveredCardIndex);
@@ -129,8 +127,8 @@ const MainContent4AnimatedCards = () => {
       dynamicCardStyleStates[i][1]((prevVal) => {
         return {
           ...prevVal,
-          width: getCardSize(hoveredCardIndex, i + 1),
-          height: getCardSize(hoveredCardIndex, i + 1),
+          width: getCardSize(hoveredCardIndex - (i + 1)),
+          height: getCardSize(hoveredCardIndex - (i + 1)),
           zIndex: totalCards - Math.abs(i + 1 - hoveredCardIndex),
         };
       });
@@ -139,15 +137,18 @@ const MainContent4AnimatedCards = () => {
 
   return (
     <div className={`w-full h-full flex flex-col items-center justify-center`}>
-      <Image
-        src={NTInsurance}
-        width={550}
-        unoptimized={true}
-        alt="No Tension Insurance"
-      />
+      <div className={`w-[220px] sm:w-full h-[90px] sm:h-full`}>
+        <Image
+          src={NTInsurance}
+          width={550}
+          unoptimized={true}
+          alt="No Tension Insurance"
+        />
+      </div>
+
       <Image src={PhonePeLogo} width={170} unoptimized={true} alt="PhonePe" />
 
-      <div className={`relative w-full h-[500px]`}>
+      <div className={`relative w-[200px] sm:w-full h-[275px] sm:h-[500px]`}>
         {dynamicCardStyleStates.map((cardState, index) => {
           return (
             <div
@@ -155,6 +156,7 @@ const MainContent4AnimatedCards = () => {
               style={{
                 transition: "all 0.5s cubic-bezier(0.19, 1, 0.22, 1)",
               }}
+              className={`bg-rose-800`}
             >
               <div
                 style={{
@@ -194,13 +196,15 @@ const MainContent4AnimatedCards = () => {
 
       <div className={`flex items-center justify-center mt-8 mb-6`}>
         <button
-          className={`border border-[#533093] text-base text-[#371f7b] hover:text-white hover:bg-[#371f7b] font-semibold px-20 py-1.5 rounded-3xl`}
+          className={`border border-[#533093] text-base text-[#371f7b] hover:text-white hover:bg-[#371f7b] font-semibold px-14 sm:px-20 py-1.5 rounded-3xl`}
         >
           Watch all Videos
         </button>
       </div>
 
-      <div className={`flex items-center justify-center px-80`}>
+      <div
+        className={`flex items-center justify-center px-[40px] sm:px-[320px]`}
+      >
         <p
           className={`px-6 text-black text-center text-base leading-8 font-[sans-serif] font-normal opacity-80`}
         >

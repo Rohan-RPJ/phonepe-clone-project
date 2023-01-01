@@ -7,10 +7,12 @@ const DynamicReactPlayerForVideo = dynamic(() => import("react-player"), {
 const MainContent3TextAndVideo = () => {
   return (
     <div
-      className={`w-full h-[600px] flex items-center justify-between mt-24 mb-16 px-44`}
+      className={`w-full h-full sm:h-[600px] flex flex-col-reverse sm:flex-row items-center justify-between sm:mt-24 sm:mb-16 sm:px-44`}
     >
       <div className={`w-full h-full basis-1/2 flex flex-col items-center `}>
-        <div className={`basis-1/6 flex items-center w-full h-full pt-16`}>
+        <div
+          className={`hidden basis-1/6 sm:flex items-center w-full h-full pt-16`}
+        >
           <span
             className={`text-[2.5rem] text-[#361374] font-semibold font-['Arial']`}
           >
@@ -19,7 +21,7 @@ const MainContent3TextAndVideo = () => {
         </div>
 
         <div
-          className={`w-full h-full basis-5/6 flex flex-col items-start justify-between gap-4 py-8 pr-20`}
+          className={`w-full h-full basis-5/6 flex flex-col items-start justify-between gap-4 py-8 px-5 sm:pl-0 sm:pr-20`}
         >
           {[
             {
@@ -38,12 +40,16 @@ const MainContent3TextAndVideo = () => {
             return (
               <div
                 key={index}
-                className={`basis-1/3 h-full flex flex-col gap-5`}
+                className={`basis-1/3 w-full h-full flex flex-col gap-3 sm:gap-5`}
               >
-                <span className={`text-[1.375rem] text-[#323232] font-normal`}>
+                <span
+                  className={`text-[1.3rem] sm:text-[1.375rem] text-[#323232] font-medium sm:font-normal`}
+                >
                   {title}
                 </span>
-                <span className={`text-sm text-[#232028] opacity-70 pr-10`}>
+                <span
+                  className={`text-sm text-[#232028] opacity-70 pr-4 sm:pr-10 leading-loose sm:leading-snug`}
+                >
                   {desc}
                 </span>
                 <hr
@@ -78,6 +84,16 @@ const MainContent3TextAndVideo = () => {
           muted={true}
           // className={`h-full`}
         />
+      </div>
+
+      <div
+        className={`flex items-center justify-center w-full h-full sm:hidden`}
+      >
+        <span
+          className={`text-[1.75rem] text-[#361374] font-semibold font-['Arial']`}
+        >
+          Simple, Fast & Secure
+        </span>
       </div>
     </div>
   );

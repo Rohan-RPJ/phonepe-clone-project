@@ -10,17 +10,17 @@ import CustomSpacing from "./CustomSpacing";
 
 const MainContent = ({ isMobileNav }) => {
   return (
-    <div className={`w-full h-full max-w-[1920px] min-w-[1268px]`}>
+    <div className={`w-full h-full sm:max-w-[1920px] sm:min-w-[1268px]`}>
       <MainContent1TopCarousel isMobileNav={isMobileNav} />
       <MainContent2TwoCards />
       <MainContent3TextAndVideo />
-      <MainContent4AnimatedCards />
+      <MainContent4AnimatedCards isMobileNav={isMobileNav} />
 
       <CustomSpacing />
 
       <div className={`w-full h-full`}>
-        <MainContent5WideCard zIndex={1} />
-        <MainContent6ImageAnimation />
+        <MainContent5WideCard zIndex={1} isMobileNav={isMobileNav} />
+        <MainContent6ImageAnimation isMobileNav={isMobileNav} />
       </div>
 
       <CustomSpacing />

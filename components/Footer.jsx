@@ -10,7 +10,7 @@ import BGImage from "./../public/images/stats-desktop.png";
 const Footer = () => {
   return (
     <>
-      <div className={`relative w-full h-[442px] bg-[#7962bd] pt-10`}>
+      <div className={`relative w-full h-[442px] bg-[#7962bd] pt-10 overflow-hidden`}>
         <div className={`absolute bottom-0 bg-[#7962bd] w-full h-full`}>
           <Image
             src={BGImage}

@@ -4,7 +4,7 @@ import CardTextWithIcon from "./CardTextWithIcon";
 const MainContent2TwoCards = () => {
   return (
     <div
-      className={`flex items-center justify-center w-full h-[300px] space-x-4 my-[76px]`}
+      className={`flex flex-col sm:flex-row items-center justify-center w-full h-[434px] sm:h-[300px] gap-10 sm:gap-4 px-[31px] sm:px-0 my-[76px]`}
     >
       {[
         {

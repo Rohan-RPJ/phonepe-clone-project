@@ -25,12 +25,12 @@ const MainContent1TopCarousel = ({ isMobileNav }) => {
   ];
 
   return (
-    <div className={`relative w-full h-auto sm:h-[575px]`}>
+    <div className={`relative w-full h-[600px] sm:h-[575px]`}>
       <CustomCarousel
         items={carouselItems}
         autoPlaySpeed={7000}
         renderDotsOutside={true}
-        className={`h-auto sm:h-[550px]`}
+        className={`h-[600px] sm:h-[550px]`}
       />
     </div>
   );

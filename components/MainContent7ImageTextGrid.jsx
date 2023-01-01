@@ -24,8 +24,12 @@ const MainContent7ImageTextGrid = () => {
 
   return (
     <div className={`w-full h-full`}>
-      <div className={`w-full h-full grid grid-cols-2 py-4 px-32`}>
-        <div className={`w-full h-full col-span-1 relative`}>
+      <div
+        className={`w-full h-full grid grid-rows-2 sm:grid-cols-2 py-4 px-32`}
+      >
+        <div
+          className={`w-[94%] sm:w-full h-full row-span-1 order-last sm:order-first sm:col-span-1 relative`}
+        >
           <Image
             src={BasketDesktopImage}
             unoptimized={true}
@@ -45,7 +49,7 @@ const MainContent7ImageTextGrid = () => {
             priority
           />
         </div>
-        <div className={`w-full h-full col-span-1 pl-32 py-6`}>
+        <div className={`w-[95%] sm:w-full h-full row-span-1 sm:col-span-1 pl-32 py-6`}>
           <div className={`w-full flex flex-col justify-center pl-3`}>
             <p className={`text-[2.5rem] text-[#361968] font-medium`}>
               For Business
