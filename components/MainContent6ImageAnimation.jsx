@@ -43,11 +43,16 @@ const MainContent6ImageAnimation = () => {
 
           <div
             className={`w-full h-full px-32 py-4 -translate-x-[1500px] ${
-              myRefScrolled ? "translate-x-0" : "absolute"
+              myRefScrolled && "translate-x-0"
             } transition-transform duration-[1000ms]`}
             ref={myRef}
           >
-            <Image src={ThirdPartyPartnerLogos} unoptimized={true} alt="" />
+            <Image
+              src={ThirdPartyPartnerLogos}
+              unoptimized={true}
+              alt=""
+              priority
+            />
           </div>
         </div>
       </div>

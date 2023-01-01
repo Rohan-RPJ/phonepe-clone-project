@@ -31,6 +31,7 @@ const MainContent7ImageTextGrid = () => {
             unoptimized={true}
             ref={myRef}
             alt=""
+            priority
           />
           <Image
             src={SalesImage}
@@ -38,9 +39,10 @@ const MainContent7ImageTextGrid = () => {
             className={`absolute top-16 right-16 ${
               myRefScrolled
                 ? "visible -translate-x-0"
-                : "invisible -translate-x-[1000px] absolute"
+                : "invisible -translate-x-[800px] absolute"
             } transition-transform delay-400 duration-[1000ms]`}
             alt=""
+            priority
           />
         </div>
         <div className={`w-full h-full col-span-1 pl-32 py-6`}>

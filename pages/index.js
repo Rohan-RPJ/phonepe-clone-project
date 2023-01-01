@@ -10,24 +10,27 @@ const Home = () => {
     width: null,
   });
 
+  function handleResize() {
+    setDimensions({
+      height: screen.height,
+      width: screen.width,
+    });
+  }
+
   useEffect(() => {
     setDimensions({
       height: screen.height,
       width: screen.width,
     });
+  }, []);
 
-    function handleResize() {
-      setDimensions({
-        height: screen.height,
-        width: screen.width,
-      });
-    }
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
 
-    return (_) => {
+    return () => {
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, [handleResize]);
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -44,13 +47,9 @@ const Home = () => {
     <div className={`w-full h-full`}>
       {/* Header for Large Screens | Sidebar for small mobile screens */}
       {dimensions.width > 622 ? (
-        <header
-          className={`sticky top-0 z-50 bg-white w-full min-w-max h-full`}
-        >
-          <Header scrolled={scrolled} />
-        </header>
+        <Header scrolled={scrolled} mobileNav={false} />
       ) : (
-        <Sidebar />
+        <Sidebar scrolled={scrolled} mobileNav={true} />
       )}
       {/* <Sidebar /> */}
 

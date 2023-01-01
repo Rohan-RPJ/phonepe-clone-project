@@ -150,47 +150,43 @@ const MainContent4AnimatedCards = () => {
       <div className={`relative w-full h-[500px]`}>
         {dynamicCardStyleStates.map((cardState, index) => {
           return (
-            <div key={index}>
+            <div
+              key={index}
+              style={{
+                transition: "all 0.5s cubic-bezier(0.19, 1, 0.22, 1)",
+              }}
+            >
               <div
-                className={`absolute left-0 right-0 mx-auto top-1/2 -translate-y-1/2 transition-all duration-150 overflow-hidden`}
                 style={{
                   width: `${cardState[0].width}px`,
                   height: `${cardState[0].height}px`,
                   zIndex: `${cardState[0].zIndex}`,
+                  transition: "all 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
                   transform: `translate(${cardsTransformArr[index]}px, -50%)`,
                   borderRadius: "45px",
                 }}
+                className={`absolute left-0 right-0 mx-auto top-1/2 overflow-hidden hover:brightness-[1] ${
+                  hoveredCardIndexState === index + 1
+                    ? "brightness-[1]"
+                    : "brightness-[0.6]"
+                }`}
                 onMouseEnter={() => handleCardSizes(index + 1)}
               >
                 <Image
                   src={cardImageArr[index]}
                   unoptimized={true}
                   alt={"card-image"}
-                  className={`object-cover hover:scale-110 transition-all duration-500`}
+                  className={`object-cover hover:scale-110 transition-all duration-[400ms]`}
+                  priority
                 />
 
                 {hoveredCardIndexState === index + 1 && (
                   <PlayCircleIcon
                     width={100}
-                    className={`text-white opacity-80 absolute left-0 right-0 mx-auto bottom-[12%] -translate-y-1/3 cursor-pointer`}
+                    className={`text-white opacity-80 absolute left-0 right-0 mx-auto bottom-[12%] -translate-y-1/3 cursor-pointer transition-all duration-150`}
                   />
                 )}
               </div>
-
-              <div
-                className={`${
-                  hoveredCardIndexState === index + 1 && "hidden"
-                } absolute left-0 right-0 mx-auto top-1/2 -translate-y-1/2 transition-all duration-150 overflow-hidden bg-black opacity-50`}
-                style={{
-                  width: `${cardState[0].width}px`,
-                  height: `${cardState[0].height}px`,
-                  zIndex: `${cardState[0].zIndex}`,
-                  transform: `translate(${cardsTransformArr[index]}px, -50%)`,
-                  borderRadius: "45px",
-                  borderRadius: "45px",
-                }}
-                onMouseEnter={() => handleCardSizes(index + 1)}
-              ></div>
             </div>
           );
         })}

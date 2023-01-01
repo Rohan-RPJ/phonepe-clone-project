@@ -1,6 +1,5 @@
 import React from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 
 const CardTextWithIcon = ({ title, desc, Icon, IconStyle, IconBg }) => {
   return (

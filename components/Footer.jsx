@@ -75,7 +75,7 @@ const Footer = () => {
       <div className={`w-full h-full pt-20 pb-2 pl-40 pr-32`}>
         <div className={`w-full h-full flex items-start justify-start pl-2`}>
           <div className={`h-full flex flex-col items-start justify-start`}>
-            <Image src={PhonePeLogo} unoptimized={true} width={160} />
+            <Image src={PhonePeLogo} unoptimized={true} width={160} alt="" />
           </div>
 
           <div className={`w-full flex items-start justify-evenly px-20 pt-3`}>
@@ -141,6 +141,7 @@ const Footer = () => {
                   src={SisaCertifiedImage}
                   unoptimized={true}
                   width={112}
+                  alt=""
                 />
 
                 <ArrowTopRightOnSquareIcon
@@ -162,7 +163,9 @@ const Footer = () => {
               <div className={`py-8 w-full flex items-center justify-between`}>
                 {[LinkedInLogo, TwitterLogo, FacebookLogo].map(
                   (Logo, index) => {
-                    return <Image key={index} src={Logo} unoptimized={true} />;
+                    return (
+                      <Image key={index} src={Logo} unoptimized={true} alt="" />
+                    );
                   }
                 )}
               </div>

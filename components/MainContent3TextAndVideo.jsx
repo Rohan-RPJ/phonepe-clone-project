@@ -64,7 +64,8 @@ const MainContent3TextAndVideo = () => {
           // fallback={"Loading..."}
           id={"phonepe-video"}
           url={"./videos/phonepe-video.mp4"}
-          // width={"600"}
+          // url={`https://phonepe-clone-project.vercel.app/videos/phonepe-video.mp4`}
+          // width={"600px"}
           height={"600px"}
           controls={false}
           playing={true}
@@ -75,7 +76,7 @@ const MainContent3TextAndVideo = () => {
             },
           }}
           muted={true}
-          className={`h-full`}
+          // className={`h-full`}
         />
       </div>
     </div>

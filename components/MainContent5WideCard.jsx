@@ -53,11 +53,13 @@ const MainContent5WideCard = ({ zIndex }) => {
                   src={BottomImage1InCard}
                   unoptimized={true}
                   width={100}
+                  alt=""
                 />
                 <Image
                   src={BottomImage2InCard}
                   unoptimized={true}
                   width={100}
+                  alt=""
                 />
               </div>
             </div>
