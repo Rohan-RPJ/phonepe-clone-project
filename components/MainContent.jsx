@@ -8,10 +8,10 @@ import MainContent7ImageTextGrid from "./MainContent7ImageTextGrid";
 import MainContent8CardsPress from "./MainContent8CardsPress";
 import CustomSpacing from "./CustomSpacing";
 
-const MainContent = () => {
+const MainContent = ({ isMobileNav }) => {
   return (
     <div className={`w-full h-full max-w-[1920px] min-w-[1268px]`}>
-      <MainContent1TopCarousel />
+      <MainContent1TopCarousel isMobileNav={isMobileNav} />
       <MainContent2TwoCards />
       <MainContent3TextAndVideo />
       <MainContent4AnimatedCards />

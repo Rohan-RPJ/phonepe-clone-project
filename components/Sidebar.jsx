@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Header from "./Header";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 
-const Sidebar = ({ scrolled, mobileNav }) => {
+const Sidebar = ({ scrolled, isMobileNav }) => {
   const [showSideBar, setShowSideBar] = useState(false);
 
   const showSideBarHandler = () => {
@@ -19,7 +19,7 @@ const Sidebar = ({ scrolled, mobileNav }) => {
       <div className={`sticky top-0 z-50 bg-white w-full min-w-max h-full`}>
         <Header
           scrolled={scrolled}
-          mobileNav={mobileNav}
+          isMobileNav={isMobileNav}
           showSideBarHandler={showSideBarHandler}
         />
       </div>
@@ -27,8 +27,8 @@ const Sidebar = ({ scrolled, mobileNav }) => {
       {/* Dark Overlay Start */}
       <div
         className={`opacity-0 ${
-          !showSideBar ? "-z-[100000]" : "!opacity-60"
-        } fixed top-0 left-0 w-full h-[100vh] z-[100000] transition-all duration-[500ms]`}
+          !showSideBar ? "-z-[100000]" : "!opacity-60 z-[100000]"
+        } fixed top-0 left-0 w-full h-[100vh] transition-all duration-[500ms]`}
         onClick={() => removeSideBarOnClickHandler()}
       >
         <div
@@ -39,7 +39,7 @@ const Sidebar = ({ scrolled, mobileNav }) => {
 
       <div
         className={`w-[54%] h-[100vh] ${
-          showSideBar ? "translate-x-0" : "translate-x-[500px]"
+          showSideBar ? "translate-x-0" : "-z-[100001] translate-x-[700px]"
         } fixed top-0 right-0 bg-white transition-all duration-[500ms] z-[100001] py-12`}
       >
         <div
@@ -84,7 +84,7 @@ const Sidebar = ({ scrolled, mobileNav }) => {
 
 Sidebar.propTypes = {
   scrolled: PropTypes.bool,
-  mobileNav: PropTypes.bool,
+  isMobileNav: PropTypes.bool,
 };
 
 export default Sidebar;

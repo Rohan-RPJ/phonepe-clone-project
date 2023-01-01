@@ -10,6 +10,8 @@ const Home = () => {
     width: null,
   });
 
+  const [isMobileNav, setMobileNav] = useState(true);
+
   function handleResize() {
     setDimensions({
       height: screen.height,
@@ -32,6 +34,10 @@ const Home = () => {
     };
   }, [handleResize]);
 
+  useEffect(() => {
+    dimensions.width > 622 ? setMobileNav(false) : setMobileNav(true);
+  }, [dimensions]);
+
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     window.onscroll = handleScroll;
@@ -47,16 +53,16 @@ const Home = () => {
     <div className={`w-full h-full`}>
       {/* Header for Large Screens | Sidebar for small mobile screens */}
       {dimensions.width > 622 ? (
-        <Header scrolled={scrolled} mobileNav={false} />
+        <Header scrolled={scrolled} isMobileNav={false} />
       ) : (
-        <Sidebar scrolled={scrolled} mobileNav={true} />
+        <Sidebar scrolled={scrolled} isMobileNav={true} />
       )}
       {/* <Sidebar /> */}
 
       <div className={`w-full h-full overflow-scroll scrollbar-hide`}>
         {/* Main Content */}
         <main className={`w-full h-full`}>
-          <MainContent />
+          <MainContent isMobileNav={isMobileNav} />
         </main>
 
         {/* Footer */}

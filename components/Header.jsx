@@ -3,13 +3,12 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import PhonePeLogo from "./../public/images/logo.svg";
 
-const Header = ({ scrolled, mobileNav, showSideBarHandler }) => {
-  
+const Header = ({ scrolled, isMobileNav, showSideBarHandler }) => {
   return (
     <header className={`sticky top-0 z-50 bg-white w-full min-w-max h-full`}>
       <div
         className={`flex items-center ${
-          mobileNav
+          isMobileNav
             ? "justify-between px-2 py-[3px]"
             : "justify-center space-x-16 py-[10px]"
         } w-full ${scrolled && "shadow-sm shadow-gray-500"}`}
@@ -17,7 +16,7 @@ const Header = ({ scrolled, mobileNav, showSideBarHandler }) => {
         <div className={`min-w-max pl-1 -translate-y-0.5 cursor-pointer`}>
           <Image
             src={PhonePeLogo}
-            width={`${mobileNav ? "150" : "155"}`}
+            width={`${isMobileNav ? "150" : "155"}`}
             // height={150}
             priority="true"
             unoptimized={true}
@@ -26,7 +25,7 @@ const Header = ({ scrolled, mobileNav, showSideBarHandler }) => {
           />
         </div>
 
-        {mobileNav ? (
+        {isMobileNav ? (
           <Bars3Icon
             width={40}
             height={40}
@@ -60,7 +59,7 @@ const Header = ({ scrolled, mobileNav, showSideBarHandler }) => {
 
 Header.propTypes = {
   scrolled: PropTypes.bool,
-  mobileNav: PropTypes.bool,
+  isMobileNav: PropTypes.bool,
   showSideBarHandler: PropTypes.func,
 };
 
