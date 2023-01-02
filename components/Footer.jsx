@@ -10,19 +10,23 @@ import BGImage from "./../public/images/stats-desktop.png";
 const Footer = () => {
   return (
     <>
-      <div className={`relative w-full h-[442px] bg-[#7962bd] pt-10 overflow-hidden`}>
+      <div
+        className={`relative w-full h-[800px] sm:h-[442px] bg-[#7962bd] pt-10 sm:pt-10 overflow-hidden`}
+      >
         <div className={`absolute bottom-0 bg-[#7962bd] w-full h-full`}>
           <Image
             src={BGImage}
             unoptimized={true}
-            className={`px-32 absolute bottom-0 bg-[#7962bd]`}
+            className={`sm:px-32 absolute bottom-0 left-[60%] bg-[#7962bd] object-cover h-[820px] w-full`}
             alt=""
           />
         </div>
         <div
-          className={`w-full h-full flex flex-col items-center gap-4 pl-[254px] pr-[130px] pt-[28px]`}
+          className={`w-full h-full flex flex-col items-center gap-4 pl-[23%] sm:pl-[254px] sm:pr-[130px] pt-1 sm:pt-[28px]`}
         >
-          <div className={`w-full grid grid-cols-3 text-white`}>
+          <div
+            className={`w-full flex flex-col sm:grid sm:grid-cols-3 gap-8 sm:gap-0 text-white`}
+          >
             {[
               {
                 p1: "Trusted by",
@@ -58,7 +62,7 @@ const Footer = () => {
           </div>
 
           <div
-            className={`w-full flex items-center justify-between pr-48 opacity-90 text-white pt-6 pl-2`}
+            className={`w-full flex flex-col sm:flex-row gap-7 sm:gap-0 items-center justify-between pr-48 opacity-90 text-white pt-6 sm:pl-2`}
           >
             <p className={`opacity-80 text-[1.625rem] font-medium`}>
               Get the latest data trends and insights on PhonePe Pulse!

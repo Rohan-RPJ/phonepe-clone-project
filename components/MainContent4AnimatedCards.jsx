@@ -137,7 +137,9 @@ const MainContent4AnimatedCards = ({ isMobileNav }) => {
 
   return (
     <div className={`w-full h-full flex flex-col items-center justify-center`}>
-      <div className={`w-[220px] sm:w-full h-[90px] sm:h-full`}>
+      <div
+        className={`w-[220px] sm:w-full h-[90px] sm:h-full flex items-center justify-center`}
+      >
         <Image
           src={NTInsurance}
           width={550}
@@ -151,13 +153,7 @@ const MainContent4AnimatedCards = ({ isMobileNav }) => {
       <div className={`relative w-[200px] sm:w-full h-[275px] sm:h-[500px]`}>
         {dynamicCardStyleStates.map((cardState, index) => {
           return (
-            <div
-              key={index}
-              style={{
-                transition: "all 0.5s cubic-bezier(0.19, 1, 0.22, 1)",
-              }}
-              className={`bg-rose-800`}
-            >
+            <div key={index}>
               <div
                 style={{
                   width: `${cardState[0].width}px`,

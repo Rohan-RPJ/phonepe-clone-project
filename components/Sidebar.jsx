@@ -39,7 +39,7 @@ const Sidebar = ({ scrolled, isMobileNav }) => {
 
       <div
         className={`w-[54%] h-[100vh] ${
-          showSideBar ? "translate-x-0" : "-z-[100001] translate-x-[700px]"
+          showSideBar ? "translate-x-0" : "-z-[100001] translate-x-[1000px]"
         } fixed top-0 right-0 bg-white transition-all duration-[500ms] z-[100001] py-12`}
       >
         <div
