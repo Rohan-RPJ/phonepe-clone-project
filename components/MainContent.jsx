@@ -27,7 +27,7 @@ const MainContent = ({ isMobileNav }) => {
 
       <MainContent7ImageTextGrid />
 
-      <CustomSpacing paddingY={28} />
+      {!isMobileNav && <CustomSpacing paddingY={28} /> }
 
       <MainContent8CardsPress />
     </div>

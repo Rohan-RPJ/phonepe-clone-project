@@ -25,33 +25,35 @@ const MainContent7ImageTextGrid = () => {
   return (
     <div className={`w-full h-full`}>
       <div
-        className={`w-full h-full grid grid-rows-2 sm:grid-cols-2 py-4 px-32`}
+        className={`w-full h-full flex flex-col sm:grid sm:grid-cols-2 py-4 pl-6 sm:px-32`}
       >
         <div
-          className={`w-[94%] sm:w-full h-full row-span-1 order-last sm:order-first sm:col-span-1 relative`}
+          className={`w-[94%] sm:w-full px-3 sm:px-0 row-span-1 order-last sm:order-first sm:col-span-1 relative`}
         >
-          <Image
-            src={BasketDesktopImage}
-            unoptimized={true}
+          <Image src={BasketDesktopImage} unoptimized={true} alt="" priority />
+          <div
+            className={`invisible top-1/2 right-1/2 absolute`}
             ref={myRef}
-            alt=""
-            priority
-          />
+          ></div>
           <Image
             src={SalesImage}
             unoptimized={true}
-            className={`absolute top-16 right-16 ${
+            className={`absolute top-2 sm:top-16 -right-5 sm:right-16 ${
               myRefScrolled
                 ? "visible -translate-x-0"
                 : "invisible -translate-x-[800px] absolute"
-            } transition-transform delay-400 duration-[1000ms]`}
+            } transition-transform delay-400 duration-[1000ms] p-3`}
             alt=""
             priority
           />
         </div>
-        <div className={`w-[95%] sm:w-full h-full row-span-1 sm:col-span-1 pl-32 py-6`}>
-          <div className={`w-full flex flex-col justify-center pl-3`}>
-            <p className={`text-[2.5rem] text-[#361968] font-medium`}>
+        <div
+          className={`w-[97%] sm:w-full h-full row-span-1 sm:col-span-1 sm:pl-32 py-6`}
+        >
+          <div className={`w-full flex flex-col justify-center`}>
+            <p
+              className={`text-[2rem] sm:text-[2.5rem] text-[#6739b7] font-medium`}
+            >
               For Business
             </p>
             <p className={`text-base font-light text-[#333] py-7`}>
@@ -91,8 +93,7 @@ const MainContent7ImageTextGrid = () => {
                     >
                       <p className={`text-lg font-medium`}>{p1}</p>
                       <ChevronRightIcon
-                        width={28}
-                        className={`group-hover:translate-x-3 transition-transform`}
+                        className={`group-hover:translate-x-3 transition-transform w-[24px] sm:w-[28px]`}
                       />
                     </div>
                     <p className={`text-base text-[#333] font-light`}>{p2}</p>
