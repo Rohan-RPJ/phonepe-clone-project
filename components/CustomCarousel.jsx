@@ -11,6 +11,7 @@ const CustomCarousel = ({
   renderDotsOutside,
   className,
   deviceType,
+  minimumTouchDrag,
 }) => {
   const responsive = {
     desktop: {
@@ -57,7 +58,7 @@ const CustomCarousel = ({
     <Carousel
       swipeable={true}
       draggable={true}
-      minimumTouchDrag={350}
+      minimumTouchDrag={minimumTouchDrag}
       showDots={true}
       customDot={<CustomDot />}
       renderDotsOutside={renderDotsOutside} // boolean value
@@ -87,10 +88,11 @@ const CustomCarousel = ({
               unoptimized={true}
               fill
               object-fit="contain"
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+              // sizes="(max-width: 768px) 100vw,
+              // (max-width: 1200px) 50vw,
+              // 33vw"
               draggable={false}
+              // className={`h-full w-full`}
             />
           </div>
         );
