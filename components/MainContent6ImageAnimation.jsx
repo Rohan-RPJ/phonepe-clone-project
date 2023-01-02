@@ -24,7 +24,7 @@ const MainContent6ImageAnimation = ({ isMobileNav }) => {
 
   return (
     <div
-      className={`w-full h-full relative bg-gradient-to-b from-[#ddd8fa] to-[#ddd8fa] pt-[350px] -translate-y-[140px] mb-[410px] sm:mb-[350px] z-0`}
+      className={`w-full h-full relative bg-gradient-to-b from-[#ddd8fa] to-[#ddd8fa] pt-[420px] sm:pt-[350px] -translate-y-[140px] mb-[410px] sm:mb-[350px] z-0`}
     >
       <div
         className={`w-full h-full absolute bg-gradient-to-b from-[#ddd8fa] to-[#fff]`}
