@@ -8,15 +8,15 @@ const MainContent2TwoCards = () => {
     >
       {[
         {
-          title: "Insurance made easy",
-          desc: "Secure your life, health, vehicles & more!",
+          title: ["Insurance made", "easy"],
+          desc: ["Secure your life, health,","vehicles & more!"],
           Icon: ShieldCheckIcon,
           IconStyle: "text-[#361968]",
           IconBg: `bg-sky-50`,
         },
         {
-          title: "The best in Mutual Fund Investments",
-          desc: "Invest your wealth and achieve your financial goals!",
+          title: ["The best in Mutual", "Fund Investments"],
+          desc: ["Invest your wealth and achieve", "your financial goals!"],
           Icon: CurrencyDollarIcon,
           IconStyle: "text-rose-500",
           IconBg: `bg-red-50`,

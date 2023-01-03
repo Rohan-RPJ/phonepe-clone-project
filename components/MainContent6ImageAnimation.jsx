@@ -3,6 +3,7 @@ import Image from "next/image";
 import GradientButton from "./GradientButton";
 import ThirdPartyPartnerLogos from "./../public/images/third-party-partner-logos.png";
 import MobThirdPartyPartnerLogos from "./../public/images/mob-third-party-partner-logos.png";
+import styles from "./../styles/HomeMainContent6.module.css";
 
 const MainContent6ImageAnimation = ({ isMobileNav }) => {
   const myRef = useRef();
@@ -42,7 +43,9 @@ const MainContent6ImageAnimation = ({ isMobileNav }) => {
           <GradientButton text={"Partner with us"} />
 
           <div
-            className={`w-full h-[600px] sm:h-full px-16 sm:px-32 py-8 sm:py-4 -translate-x-[1000px] sm:-translate-x-[1500px] ${
+            className={`w-full h-[600px] sm:h-full px-2 ${
+              styles.imagePaddingX
+            } sm:px-32 py-8 sm:py-4 -translate-x-[1000px] sm:-translate-x-[1500px] ${
               myRefScrolled && "translate-x-0 sm:translate-x-0"
             } transition-transform duration-[1000ms]`}
           >

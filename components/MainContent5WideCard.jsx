@@ -54,7 +54,7 @@ const MainContent5WideCard = ({ zIndex, isMobileNav }) => {
               </p>
 
               <div
-                className={`h-full w-full flex items-end justify-between sm:justify-start sm:gap-8 px-8 sm:px-0 py-8 sm:py-0`}
+                className={`h-full w-full flex items-end justify-center sm:justify-start gap-16 sm:gap-8 sm:px-0 py-8 sm:py-0`}
               >
                 <Image
                   src={BottomImage1InCard}

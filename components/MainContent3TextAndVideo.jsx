@@ -64,7 +64,7 @@ const MainContent3TextAndVideo = () => {
       </div>
 
       <div
-        className={`basis-1/2 flex items-center justify-start w-full h-full -m-4`}
+        className={`basis-1/2 flex items-center justify-start w-full h-full sm:-m-4`}
       >
         <DynamicReactPlayerForVideo
           // fallback={"Loading..."}
@@ -72,7 +72,8 @@ const MainContent3TextAndVideo = () => {
           url={"./videos/phonepe-video.mp4"}
           // url={`https://phonepe-clone-project.vercel.app/videos/phonepe-video.mp4`}
           // width={"600px"}
-          height={"600px"}
+          width={"600px"}
+          height={"100%"}
           controls={false}
           playing={true}
           loop={true}
