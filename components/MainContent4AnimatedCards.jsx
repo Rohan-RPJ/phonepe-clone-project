@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import NTInsurance from "./../public/images/nt_insurance.png";
 import PhonePeLogo from "./../public/images/logo.svg";
@@ -29,7 +29,7 @@ const MainContent4AnimatedCards = ({ isMobileNav }) => {
   const middleCardIndex = Math.ceil(totalCards / 2);
   const maxCardSize = isMobileNav ? 240 : 440;
   const cardSizeOffset = isMobileNav ? 15 : 35;
-  const translateXOffset = isMobileNav ? 30 : 150;
+  const translateXOffset = isMobileNav ? 26 : 150;
 
   const cardsTransformArr = [];
   const dynamicCardStyleStates = [];
@@ -117,6 +117,30 @@ const MainContent4AnimatedCards = ({ isMobileNav }) => {
     zIndex: 0,
   });
 
+  useEffect(() => {
+    for (let i = 0; i < totalCards; i++) {
+      dynamicCardStyleStates[i][1]((prevVal) => {
+        return {
+          index: i,
+          width: getCardSize(
+            i >= middleCardIndex
+              ? (i % middleCardIndex) + 1
+              : middleCardIndex - 1 - (i % middleCardIndex)
+          ),
+          height: getCardSize(
+            i >= middleCardIndex
+              ? (i % middleCardIndex) + 1
+              : middleCardIndex - 1 - (i % middleCardIndex)
+          ),
+          zIndex:
+            i < middleCardIndex
+              ? (i % middleCardIndex) + 1
+              : middleCardIndex - 1 - (i % middleCardIndex),
+        };
+      });
+    }
+  }, [isMobileNav]);
+
   const [hoveredCardIndexState, setHoveredCardIndexState] =
     useState(middleCardIndex);
 
@@ -150,7 +174,7 @@ const MainContent4AnimatedCards = ({ isMobileNav }) => {
 
       <Image src={PhonePeLogo} width={170} unoptimized={true} alt="PhonePe" />
 
-      <div className={`relative w-[200px] sm:w-full h-[275px] sm:h-[500px]`}>
+      <div className={`relative w-full h-[275px] sm:h-[500px]`}>
         {dynamicCardStyleStates.map((cardState, index) => {
           return (
             <div key={index}>
